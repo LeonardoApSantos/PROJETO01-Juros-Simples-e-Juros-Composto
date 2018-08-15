@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Leona
  */
-@WebServlet(name = "jurosSimples", urlPatterns = {"/jurosSimples"})
-public class jurosSimples extends HttpServlet {
+@WebServlet(name = "jurosComposto", urlPatterns = {"/jurosComposto"})
+public class jurosComposto extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,23 +37,27 @@ public class jurosSimples extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Juros-simples</title>");            
+            out.println("<title>Juros-composto</title>");            
             out.println("</head>");
             out.println("<body>");
             out.println("<a href='Home'>Voltar<br/></a>");
-
             out.println("<form> "
                     + "Capital: <br/><input type='Text' name='c'/><br/> "
                     + "Taxa de juros: <br/><input type='Text' name='i'/><br/> "
                     + "Tempo de aplicação: <br/><input type='Text' name='n'/><br/> "
-                    + "<input type='submit' value='CALCULAR'/> </form");
+                    + "<input type='submit' value='CALCULAR'/></form");
             
-            int c = Integer.parseInt(request.getParameter("c"));
-            double i = Double.parseDouble(request.getParameter("i"));
+            double c = Integer.parseInt(request.getParameter("c"));
+            double tj = Double.parseDouble(request.getParameter("i"));
             double n = Double.parseDouble(request.getParameter("n"));
-            double M = c+(c*i*n);
-            
-            out.println("<h1><br/>O montante é: "+M+"</h1>");
+            double M = c*Math.pow((1+tj),n);
+            out.println("<caption><br/>RESULTADO</caption>");
+            for(int i=1;i<=n;i++)
+            {
+                out.println("<table border='1'>"
+                        + "<tr><td>nome</td><td>leonardo</td></tr>"
+                        + "</table>");
+            }
             out.println("</body>");
             out.println("</html>");
         }
