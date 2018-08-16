@@ -50,14 +50,18 @@ public class jurosComposto extends HttpServlet {
             double c = Integer.parseInt(request.getParameter("c"));
             double tj = Double.parseDouble(request.getParameter("i"));
             double n = Double.parseDouble(request.getParameter("n"));
-            double M = c*Math.pow((1+tj),n);
-            out.println("<caption><br/>RESULTADO</caption>");
+            double M = 0;
+            
+            out.println("<h2><br/>RESULTADO</h2>");
+            out.println("<table border='1'>");
+            out.println("<tr><td>TEMPO DE APLICAÇÃO</td><td>CAPITAL</td><td>JUROS</td><td>MONTANTE</td></tr>");
             for(int i=1;i<=n;i++)
             {
-                out.println("<table border='1'>"
-                        + "<tr><td>nome</td><td>leonardo</td></tr>"
-                        + "</table>");
+                M = c+(tj * c);
+                out.println("<tr><td>"+i+"</td><td>"+c+"</td><td>"+tj+"% de "+c+"</td><td>"+M+"</td></tr>");
+                c += (tj * c);
             }
+           out.println("</table>");
             out.println("</body>");
             out.println("</html>");
         }
