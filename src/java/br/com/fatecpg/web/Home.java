@@ -41,7 +41,7 @@ public class Home extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Projeto 01</h1>");
-            out.println("<div>Este projeto foi feito por Leonardo e Roberto. <br/>Seu objetivo é informar ao "
+            out.println("<div>Este projeto foi feito por Leonardo, Roberto e Peterson. <br/>Seu objetivo é informar ao "
                     + "usuário um montante <br/>acumulado, tanto com juros-simples quanto <br/>juros-compostos.<p/></div>");
             out.println("<a href='jurosSimples'>Juros-simples<br/><a/>");
             out.println("<a href='jurosComposto'>Juros-composto<a/>");
